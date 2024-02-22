@@ -922,3 +922,10 @@ img {
 .post__comment-submit:hover {
     background-color: #0063e5; /* Change to the desired hover color */
 }
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}

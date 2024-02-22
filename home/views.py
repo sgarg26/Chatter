@@ -1,5 +1,7 @@
 from django import forms
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 
 class NewTaskForm(forms.Form):
@@ -13,10 +15,4 @@ def index(request):
 
 
 def new(request):
-    if request.method == "POST":
-        form = NewTaskForm(request.POST)
-        if form.is_valid():
-            title = form.cleaned_data["title"]
-            content = form.cleaned_data["content"]
-            new_post = {"title": title, "content": content}
-
+    return render(request, "home/new.html")
