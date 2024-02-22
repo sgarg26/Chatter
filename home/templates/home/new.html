@@ -1,0 +1,15 @@
+{% extends "home/layout.html" %} {% block style %}
+<style>
+    body {
+        background-color: green;
+    }
+</style>
+{% endblock %} {% block content %}
+<div class="form-container">
+    <h2>Create a new post</h2>
+    <form action="" method="post">
+        {% csrf_token %} {{ form }}
+        <button type="submit">Create Post</button>
+    </form>
+</div>
+{% endblock %}
