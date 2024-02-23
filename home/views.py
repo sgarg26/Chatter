@@ -5,9 +5,8 @@ from django.urls import reverse
 
 
 class NewTaskForm(forms.Form):
-    title = forms.CharField(label="Title")
+    desc = forms.CharField(label="Link to image")
     content = forms.CharField(label="Content")
-
 
 # Create your views here.
 def index(request):
@@ -15,4 +14,6 @@ def index(request):
 
 
 def new(request):
-    return render(request, "home/new.html")
+    return render(request, "home/new.html", {
+        "form": NewTaskForm()
+    })
