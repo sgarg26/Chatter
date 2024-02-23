@@ -10,3 +10,7 @@
 # External Sources
 
 1. Used [Django docs](https://docs.djangoproject.com/en/5.0/topics/templates/) to learn about templates.
+
+# GitHub Link
+
+Link: https://github.com/sgarg26/Chatter
