@@ -7,7 +7,7 @@ posts = []
 
 class NewTaskForm(forms.Form):
     link = forms.CharField(label="Link to image")
-    desc = forms.CharField(label="Description")
+    desc = forms.CharField(label="Description", required=True)
 
 # Create your views here.
 def index(request):

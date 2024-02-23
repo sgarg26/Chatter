@@ -1,12 +1,27 @@
-body {
-    background-color: blue;
+* {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 .form-container {
-    color: red;
     display: flex;
-    border: 1px solid green;
     height: 100vh;
+    width: 100vw;
+    border: 1px solid red;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
+
+.inside {
+    padding: 10px;
+}
+
+.submit-out {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn {
+    padding: 5px;
+}
+
