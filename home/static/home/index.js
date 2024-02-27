@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     // postImage.src = postImage.src + '?t=' + Date.now();
                     postImage.src = "https://source.unsplash.com/random/512x512/?t=" + Date.now()
                 }
-                var description = clonedArticle.querySelector('.post__description')
+                var description = clonedArticle.querySelector('#desc-text')
                 if (description) {
                     getQuote(description)
                 }
