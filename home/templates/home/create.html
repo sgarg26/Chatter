@@ -1,0 +1,27 @@
+{% extends "home/layout.html" %}
+{% load static %}
+
+{% block loadInHead %}
+<script src="{% static 'home/create.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<!-- A simple form that displays the image and asks for input -->
+<div class="create">
+    <form style="margin-top: 5%;">
+        <div id="createDiv">
+            <label for="imageLink">Image Link: </label>
+            <input required id="imageLink" type="text"/>
+            
+            <img id="createImg" data-imgdne = "{% static 'home/assets/img_DNE.jpg' %}" alt="Post image" src="https://source.unsplash.com/random/512x512/?social"/>
+            
+            <label for="descriptionInput">Description: </label>
+            <input required id="descriptionInput" type="text"/>
+            
+            <button type="submit">Create Post!</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

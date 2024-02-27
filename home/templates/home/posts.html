@@ -1,0 +1,112 @@
+{% extends "home/layout.html" %}
+{% load static %}
+
+
+<!-- Use this to add HTML to layout.html's <head> -->
+{% block loadInHead %}
+<!-- For any JavaScript code you might use -->
+<script src="{% static 'home/index.js' %}"></script>
+{% endblock %}
+
+<!-- Adds content to the <body> -->
+{% block content %}
+
+<main class="main-container">
+    <section class="content-container">
+        
+        <div class="content">
+            <!-- Posts will be appended below -->
+            {% block posts%}
+
+            {% endblock %}
+        </div>
+
+        <!-- You can ignore the HTML below this... you won't be needing it -->
+        <section class="side-menu">
+            <div class="side-menu__user-profile">
+                <a href="https://github.com/leocosta1" target="_blank" class="side-menu__user-avatar">
+                    <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" />
+                </a>
+                <div class="side-menu__user-info">
+                    <a href="https://github.com/leocosta1" target="_blank">cs395_fan</a>
+                    <span>John Doe</span>
+                </div>
+                <button class="side-menu__user-button">Switch</button>
+            </div>
+
+            <div class="side-menu__suggestions-section">
+                <div class="side-menu__suggestions-header">
+                    <h2>Suggestions for You</h2>
+                    <button>See All</button>
+                </div>
+                <div class="side-menu__suggestions-content">
+                    <div class="side-menu__suggestion">
+                        <a href="#" class="side-menu__suggestion-avatar">
+                            <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" />
+                        </a>
+                        <div class="side-menu__suggestion-info">
+                            <a href="#">ethan.ton</a>
+                            <span>Followed by George Mason</span>
+                        </div>
+                        <button class="side-menu__suggestion-button">Follow</button>
+                    </div>
+                    <div class="side-menu__suggestion">
+                        <a href="#" class="side-menu__suggestion-avatar">
+                            <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" />
+                        </a>
+                        <div class="side-menu__suggestion-info">
+                            <a href="#">Krishna.Purohit</a>
+                            <span>Followed by Mark Zuckerberg</span>
+                        </div>
+                        <button class="side-menu__suggestion-button">Follow</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Just the footer... you can ignore this -->
+            <div class="side-menu__footer">
+                <div class="side-menu__footer-links">
+                    <ul class="side-menu__footer-list">
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">About</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Help</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Press</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">API</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Jobs</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Privacy</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Terms</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Locations</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Top Accounts</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Hashtag</a>
+                        </li>
+                        <li class="side-menu__footer-item">
+                            <a class="side-menu__footer-link" href="#">Language</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <span class="side-menu__footer-copyright">&copy; 2021 instagram from facebook</span>
+            </div>
+        </section>
+    </section>
+</main>
+
+{% endblock %}
