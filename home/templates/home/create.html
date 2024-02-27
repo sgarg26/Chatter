@@ -12,20 +12,8 @@
     <form action="{% url 'home:create' %}" method="post" style="margin-top: 5%;">
         {% csrf_token %}
         {{ form }}
-        <img id="createImg" src="https://source.unsplash.com/random/" alt="">
+        <div id="createDiv"><img id="createImg" src="https://source.unsplash.com/random/" alt=""></div>
         <button type="submit">Create Post!</button>
-        <!-- <a style="text-decoration: none;" href="{% url 'home:index' %}">Create Post!</a> -->
-        <!-- <div id="createDiv">
-            <label for="imageLink">Image Link: </label>
-            <input required id="imageLink" type="text"/>
-            
-            <img id="createImg" data-imgdne = "{% static 'home/assets/img_DNE.jpg' %}" alt="Post image" src="https://source.unsplash.com/random/512x512/?social"/>
-            
-            <label for="descriptionInput">Description: </label>
-            <input required id="descriptionInput" type="text"/>
-            
-            <a style="text-decoration: none" href="{% url 'home:index' %}">Create Post!</a>
-        </div> -->
     </form>
 </div>
 

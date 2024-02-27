@@ -1,6 +1,7 @@
 {% extends "home/posts.html" %}
 {% load static %}
     {% block posts %}
+            {% for post in posts %}
             <div class="posts" id="postsDiv">
             
 
@@ -28,7 +29,8 @@
                     <div class="post__content">
                         <div class="post__medias">
                             <!-- Sets the image to the post's URL -->
-                            <img class="post__media" src="https://source.unsplash.com/random/512x512/?social"
+                            <!-- <img class="post__media" src="https://source.unsplash.com/random/512x512/?social" -->
+                            <img class="post__media" src="{{ post.link }}"
                                 alt="Post Content" />
                         </div>
                     </div>
@@ -98,8 +100,7 @@
                                 <span>
                                     <a class="post__name--underline" href="https://github.com/leocosta1"
                                         target="_blank">leocosta1</a>
-                                    Responsive clone of Instagram UI. Made by Leonard Costa with ❤ for study
-                                    purposes.
+                                        {{ post.desc }}
                                 </span>
                             </div>
 
@@ -141,4 +142,5 @@
             
             
             </div>
+            {% endfor %}
     {%endblock%}

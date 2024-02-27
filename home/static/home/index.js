@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const postsDiv = document.getElementById("postsDiv");
+    const contentDiv = document.getElementsByClassName("content")[0];
     let postCounter = 0;
 
     window.addEventListener("scroll", () => {
@@ -13,11 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Append a unique timestamp to the image URL
                 var postImage = clonedArticle.querySelector('.post__media');
                 if (postImage) {
-                    postImage.src = postImage.src + '?t=' + Date.now();
+                    // postImage.src = postImage.src + '?t=' + Date.now();
+                    postImage.src = "https://source.unsplash.com/random/512x512/?t=" + Date.now()
+                }
+                var description = clonedArticle.querySelector('.post__description')
+                if (description) {
+                    getQuote(description)
                 }
 
                 // Append the cloned article to the postsDiv
-                postsDiv.appendChild(clonedArticle);
+                contentDiv.appendChild(clonedArticle);
 
                 postCounter++;
 
@@ -29,3 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function getQuote(desc) {
+    let quote = ""
+    fetch("https://api.quotable.io/random")
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data.content)
+            desc.innerText = data.content
+        })
+    return 0
+}

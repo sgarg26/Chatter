@@ -28,7 +28,7 @@ def index(request):
 
 def print_posts():
     for i, post in enumerate(posts):
-        print(f"i:{i}\n")
+        print(f"i:{i}")
         print(f"link: {post['link']} desc: {post['desc']}")
 
 def create(request):
