@@ -13,7 +13,8 @@
         {% csrf_token %}
         {{ form }}
         <img id="createImg" src="https://source.unsplash.com/random/" alt="">
-        <button type="submit" href="{% url 'home:index' %}">Create Post!</button>
+        <button type="submit">Create Post!</button>
+        <!-- <a style="text-decoration: none;" href="{% url 'home:index' %}">Create Post!</a> -->
         <!-- <div id="createDiv">
             <label for="imageLink">Image Link: </label>
             <input required id="imageLink" type="text"/>

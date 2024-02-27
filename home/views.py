@@ -22,19 +22,28 @@ class NewForm(forms.Form):
 
 
 def index(request):
-    return render(request, "home/index.html")
+    return render(request, "home/index.html", {
+        "posts": posts
+    })
 
+def print_posts():
+    for i, post in enumerate(posts):
+        print(f"i:{i}\n")
+        print(f"link: {post['link']} desc: {post['desc']}")
 
 def create(request):
     if request.method == "POST":
+        print("request POST")
         form = NewForm(request.POST)
         if form.is_valid():
+            print("form is valid")
             link = form.cleaned_data["link"]
             desc = form.cleaned_data["desc"]
             new_post = {"link": link, "desc": desc}
             posts.insert(0, new_post)
-            print("donezo")
-        return HttpResponseRedirect(reverse("home:create"))
+            print_posts()
+        return HttpResponseRedirect(reverse("home:index"))
+    print("request not post")
     return render(request, "home/create.html", {"form": NewForm()})
     # return render(request, "home/create.html")
 
