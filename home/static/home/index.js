@@ -35,12 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const heart = document.getElementsByClassName("s1")[0]
+
+heart.addEventListener("mouseup", () => {
+    if (heart.style.fill == "red")
+        heart.style.fill = "white"
+    else {
+        heart.style.fill = "red"
+    }
+})
+
 function getQuote(desc) {
     let quote = ""
     fetch("https://api.quotable.io/random")
         .then(response => response.json())
         .then(data => {
-            // console.log(data.content)
             desc.innerText = data.content
         })
     return 0
