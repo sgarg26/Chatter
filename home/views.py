@@ -39,26 +39,17 @@ class NewForm(forms.Form):
 def index(request):
     return render(request, "home/index.html", {"posts": posts})
 
-
-def print_posts():
-    for i, post in enumerate(posts):
-        print(f"i:{i}")
-        print(f"link: {post['link']} desc: {post['desc']}")
-
-
 def create(request):
     if request.method == "POST":
-        print("request POST")
         form = NewForm(request.POST)
         if form.is_valid():
-            print("form is valid")
             link = form.cleaned_data["link"]
             desc = form.cleaned_data["desc"]
             uname = form.cleaned_data["uname"]
             profile_pic = form.cleaned_data["profile_pic"]
             curr_id += 1
             new_post = {
-                "link": link,
+                "link": link, 
                 "desc": desc,
                 "uname": uname,
                 "profile_pic": profile_pic,
@@ -66,5 +57,4 @@ def create(request):
             }
             posts.insert(0, new_post)
         return HttpResponseRedirect(reverse("home:index"))
-    print("request not post")
     return render(request, "home/create.html", {"form": NewForm()})
