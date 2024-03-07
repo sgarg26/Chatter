@@ -13,12 +13,13 @@
                     
                     <div class="post__header">
                         <!-- Makes the profile picture clickable -->
-                        <div class="post__profile">
+                        <div class="post__profile" style="background-size: cover;">
                             <a href="https://github.com/leocosta1" target="_blank" class="post__avatar">
-                                <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" />
+                                <!-- <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" /> -->
+                                <img src="{{ post.profile_pic }}" alt="User Picture" />
                             </a>
                             <!-- Makes the username clickable -->
-                            <a href="https://github.com/leocosta1" target="_blank" class="post__user">leocosta1</a>
+                            <a href="https://github.com/leocosta1" target="_blank" class="post__user">{{ post.uname }}</a>
                         </div>
                     </div>
 
@@ -44,7 +45,7 @@
                                     <!-- Sets the color of the heart -->
                                     <style>
                                         .s1 {
-                                            fill: red;
+                                            fill: #ffffff;
                                         }
                                     </style>
                                     <path class="s1"
@@ -99,7 +100,7 @@
                             <div class="post__description">
                                 <span>
                                     <a class="post__name--underline" href="https://github.com/leocosta1"
-                                        target="_blank">leocosta1</a>
+                                        target="_blank">{{ post.uname }}</a>
                                         <span id="desc-text">{{ post.desc }}</span>
                                 </span>
                             </div>

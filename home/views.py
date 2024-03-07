@@ -8,7 +8,7 @@ posts = [
     {
         "link": "https://images.pexels.com/photos/20413769/pexels-photo-20413769/free-photo-of-a-black-and-white-photo-of-a-swan-in-the-water.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "desc": "Picture of swan",
-        "username": "u1",
+        "uname": "u1",
         "num_likes": 12,
         "comments": [
             {
@@ -28,6 +28,8 @@ posts = [
 class NewForm(forms.Form):
     link = forms.CharField(label="Link to image")
     desc = forms.CharField(label="Description")
+    uname = forms.CharField(label="Username")
+    profile_pic = forms.CharField(label="Profile Picture")
 
 
 def index(request):
@@ -48,9 +50,15 @@ def create(request):
             print("form is valid")
             link = form.cleaned_data["link"]
             desc = form.cleaned_data["desc"]
-            new_post = {"link": link, "desc": desc}
+            uname = form.cleaned_data["uname"]
+            profile_pic = form.cleaned_data["profile_pic"]
+            new_post = {
+                "link": link,
+                "desc": desc,
+                "uname": uname,
+                "profile_pic": profile_pic,
+            }
             posts.insert(0, new_post)
-            print_posts()
         return HttpResponseRedirect(reverse("home:index"))
     print("request not post")
     return render(request, "home/create.html", {"form": NewForm()})

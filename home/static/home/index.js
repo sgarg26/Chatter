@@ -47,9 +47,10 @@ heart.addEventListener("mouseup", () => {
     console.log("heart listener");
     if (heart.style.fill == "red") {
         heart.style.fill = "white"
-        if (like_count.value > 0) like_count.innerText = 100;
+        like_count.innerText = 100;
+        console.log("turn to white")
     } else {
-        heart.style.fill = "purple";
+        heart.style.fill = "red";
         like_count.innerText = 200;
         console.log("turn to red");
     }
