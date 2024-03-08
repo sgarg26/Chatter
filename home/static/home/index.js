@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const contentDiv = document.getElementsByClassName("content")[0];
-    let postCounter = 0;
+    const contentDiv = document.getElementsByClassName("content")[0]
+    let postCounter = 0
 
     window.addEventListener("scroll", () => {
         if (
@@ -8,59 +8,58 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.offsetHeight - 2
         ) {
             // Get the basic post layout (from index.html)
-            var post = document.querySelector("article.post");
+            var post = document.querySelector("article.post")
             if (post) {
                 // Create a deep clone of the existing article element
-                var clonedArticle = post.cloneNode(true);
+                var clonedArticle = post.cloneNode(true)
 
                 // Append a unique timestamp to the image URL
-                var postImage = clonedArticle.querySelector(".post__media");
+                var postImage = clonedArticle.querySelector(".post__media")
                 if (postImage) {
                     // postImage.src = postImage.src + '?t=' + Date.now();
                     postImage.src =
                         "https://source.unsplash.com/random/512x512/?t=" +
-                        Date.now();
+                        Date.now()
                 }
-                var description = clonedArticle.querySelector("#desc-text");
+                var description = clonedArticle.querySelector("#desc-text")
                 if (description) {
-                    getQuote(description);
+                    getQuote(description)
                 }
 
                 // Append the cloned article to the postsDiv
-                contentDiv.appendChild(clonedArticle);
+                contentDiv.appendChild(clonedArticle)
 
-                postCounter++;
+                postCounter++
 
                 // Update alt attribute with a unique identifier
-                postImage.alt = "This is post #" + postCounter;
+                postImage.alt = "This is post #" + postCounter
             } else {
-                console.log("[Error] No posts found");
+                console.log("[Error] No posts found")
             }
         }
-    });
-});
+    })
+})
 
-const heart = document.getElementsByClassName("s1")[0];
-const like_count = document.getElementById("num-likes");
+const heart = document.getElementsByClassName("s1")[0]
+const like_count = document.getElementById("num-likes")
 
 heart.addEventListener("mouseup", () => {
-    console.log("heart listener");
     if (heart.style.fill == "red") {
         heart.style.fill = "white"
-        like_count.innerText = 100;
+        like_count.innerText = parseInt(like_count.innerText) - 1
         console.log("turn to white")
     } else {
-        heart.style.fill = "red";
-        like_count.innerText = 200;
-        console.log("turn to red");
+        heart.style.fill = "red"
+        like_count.innerText = parseInt(like_count.innerText) + 1
+        console.log("turn to red")
     }
-});
+})
 
 function getQuote(desc) {
     fetch("https://api.quotable.io/random")
         .then((response) => response.json())
         .then((data) => {
-            desc.innerText = data.content;
-        });
-    return 0;
+            desc.innerText = data.content
+        })
+    return 0
 }
