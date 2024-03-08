@@ -1,11 +1,13 @@
 # Finished
 
 1. Added buttons for homepage and add new posts page on navbar.
+2. Added profile pictures 
+3. Added posting ability
+4. Added liking ability
 
 # To do
 
-1. Image previews on add post page.
-2. Infinite scroll- index.js file would not load.
+1. Couldn't figure out how to get comments working
 
 # External Sources
 
