@@ -1,6 +1,6 @@
 // When the page loads
 document.addEventListener("DOMContentLoaded", () => {
-    const createImageLink = document.getElementById("id_link");
+    const createImageLink = document.getElementById("imageLink");
     const createImg = document.getElementById("createImg");
 
     // Whenever the user changes the input of the image link

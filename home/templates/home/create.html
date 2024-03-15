@@ -9,11 +9,20 @@
 
 <!-- A simple form that displays the image and asks for input -->
 <div class="create">
-    <form action="{% url 'home:create' %}" method="post" style="margin-top: 5%;">
-        {% csrf_token %}
-        {{ form }}
-        <div id="createDiv"><img id="createImg" src="https://source.unsplash.com/random/" alt=""></div>
-        <button type="submit">Create Post!</button>
+    <form style="margin-top: 5%;" method="post" action="{% url 'home:create' %}">
+        <div id="createDiv">
+            {% csrf_token %}
+            {{ form }}
+            <!-- <label for="imageLink">Image Link: </label> -->
+            <!-- <input  name="imageLink" required id="imageLink" type="text"/> -->
+            
+            <img id="createImg" data-imgdne = "{% static 'home/assets/img_DNE.jpg' %}" alt="Post image" src="https://source.unsplash.com/random/512x512/?social"/>
+            
+            <!-- <label for="descriptionInput">Description: </label> -->
+            <!-- <input name="descriptionInput" required id="descriptionInput" type="text"/> -->
+            
+            <button type="submit">Create Post!</button>
+        </div>
     </form>
 </div>
 
