@@ -6,10 +6,10 @@
         postCounter = "{{ NUM_POSTS }}";
         DEFAULT_USER_IMG_LINK = "{% static 'home/assets/default-user.png' %}"
     </script>
-    {% for post in posts %}
+    {% for post in obj %}
 
         <!-- This element and class contain attributes that each 'post' should have -->
-        <article class="post" data-post-id="{{ post.post_id }}">
+        <article class="post" >
             
             
             
@@ -21,7 +21,7 @@
                         <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" />
                     </a>
                     <!-- Makes the username clickable -->
-                    <a href="https://github.com/{{ post.username }}" target="_blank" class="post__user">{{ post.username }}</a>
+                    <a href="https://github.com/sgarg26" target="_blank" class="post__user"></a>
                 </div>
             </div>
 
@@ -97,14 +97,14 @@
                         </a>
 
                         <span class="comment" data-post-id="{{ post.post_id }}">Liked by
-                            <a href="#">{{ post.num_likes }} others</a></span>
+                            <a href="#">some_likes others</a></span>
                     </div>
 
                     <!-- Description -->
                     <div class="post__description">
                         <span>
                             <a class="post__name--underline" href="https://github.com/{{ post.username }}"
-                                target="_blank">{{ post.username }}</a>
+                                target="_blank">some_user</a>
                             {{ post.description }}
                         </span>
                     </div>
@@ -121,7 +121,7 @@
 
                 <!-- List of Comments -->
                 <ul class="post__comments-list">
-                    {% for comment in post.comments %}
+                    <!-- {% for comment in post.comments %} -->
 
                     <!-- Comment Item -->
                     <li class="post__comment-item">
@@ -129,9 +129,9 @@
                             <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" />
                         </div>
                         <div class="post__comment-content">
-                            <p class="post__comment-text">{{ comment.comment }}</p>
+                            <p class="post__comment-text"> some comment</p>
                             <span class="post__comment-user">
-                                <a href="#">{{ comment.commentUsername }}</a>
+                                <a href="#">some username</a>
                             </span>
                         </div>
                     </li>

@@ -7,7 +7,7 @@ class User(models.Model):
     password = models.TextField()
 
 class Post(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name="users")
+    # user = models.ForeignKey('User', on_delete=models.CASCADE, related_name="users")
     image_link = models.TextField()
     description = models.TextField()
 

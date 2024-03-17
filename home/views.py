@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django import forms
+from .models import *
 
 
 class NewImageForm(forms.Form):
@@ -49,9 +50,11 @@ posts = [
 
 # Create your views here.
 def index(request):
+    obj = Post.objects.all()
     return render(request, "home/index.html", {
-        "posts": posts,
-        "NUM_POSTS" : len(posts)
+        'obj': obj
+        # "posts": posts,
+        # "NUM_POSTS" : len(posts)
     })
 
 
@@ -59,15 +62,20 @@ def create(request):
     if request.method == "POST":
         form = NewImageForm(request.POST)
         if form.is_valid():
-            image_link = form.cleaned_data["image_link"]
+            link = form.cleaned_data["image_link"]
             description_input = form.cleaned_data["description_input"]
+            post = Post.objects.create(
+                # user = None,
+                image_link = link,
+                description = description_input
+            )
             newPost = {
                 "description": description_input,
-                "image_link": image_link,
+                "image_link": link,
                 "username": "krizh-p",
                 "num_likes": 1,
                 "comments": [],
                 "post_id": len(posts) + 1,
             }
-            posts.append(newPost)
+            # posts.insert(0, newPost)
     return render(request, "home/create.html", {"form": NewImageForm()})
