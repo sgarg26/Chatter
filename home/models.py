@@ -8,6 +8,7 @@ class User(models.Model):
 
 class Post(models.Model):
     # user = models.ForeignKey('User', on_delete=models.CASCADE, related_name="users")
+    username = models.TextField() 
     image_link = models.TextField()
     description = models.TextField()
 

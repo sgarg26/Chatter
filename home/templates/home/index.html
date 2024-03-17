@@ -6,7 +6,7 @@
         postCounter = "{{ NUM_POSTS }}";
         DEFAULT_USER_IMG_LINK = "{% static 'home/assets/default-user.png' %}"
     </script>
-    {% for post in obj %}
+    {% for post in posts %}
 
         <!-- This element and class contain attributes that each 'post' should have -->
         <article class="post" >
@@ -21,7 +21,7 @@
                         <img src="{% static 'home/assets/default-user.png' %}" alt="User Picture" />
                     </a>
                     <!-- Makes the username clickable -->
-                    <a href="https://github.com/sgarg26" target="_blank" class="post__user"></a>
+                    <a href="https://github.com/" target="_blank" class="post__user">{{ post.username }}</a>
                 </div>
             </div>
 
@@ -103,8 +103,8 @@
                     <!-- Description -->
                     <div class="post__description">
                         <span>
-                            <a class="post__name--underline" href="https://github.com/{{ post.username }}"
-                                target="_blank">some_user</a>
+                            <a class="post__name--underline" href="https://github.com"
+                                target="_blank">{{ post.username }}</a>
                             {{ post.description }}
                         </span>
                     </div>
@@ -115,7 +115,7 @@
             </div>
 
             <!-- Comments Section -->
-            <div class="post__comments" data-post-id="{{ post.post_id }}">
+            <div class="post__comments">
                 <!-- Comments Heading -->
                 <h3 class="post__comments-heading">Comments</h3>
 
@@ -131,11 +131,11 @@
                         <div class="post__comment-content">
                             <p class="post__comment-text"> some comment</p>
                             <span class="post__comment-user">
-                                <a href="#">some username</a>
+                                <a href="#">{{ post.username }}</a>
                             </span>
                         </div>
                     </li>
-                    {% endfor %}
+                    <!-- {% endfor %} -->
                     <!-- Repeat the above comment item structure for other comments as needed -->
                 </ul>
 
@@ -149,7 +149,6 @@
                 </form>
             </div>
         </article>
-    
     {% endfor %}
 </div>
 {%endblock%}

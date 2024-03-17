@@ -1,5 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django import forms
+from django.urls import reverse
 from .models import *
 
 
@@ -15,6 +17,12 @@ class NewImageForm(forms.Form):
         widget=forms.TextInput(
             attrs={"id": "descriptionInput", "type": "text", "required": True}
         ),
+    )
+    username = forms.CharField(
+        label = "Username",
+        widget = forms.TextInput(
+            attrs = {"id": "Username", "type": "text", "required": True}
+        )
     )
 
 
@@ -50,11 +58,8 @@ posts = [
 
 # Create your views here.
 def index(request):
-    obj = Post.objects.all()
     return render(request, "home/index.html", {
-        'obj': obj
-        # "posts": posts,
-        # "NUM_POSTS" : len(posts)
+        'posts': Post.objects.order_by('-id')
     })
 
 
@@ -64,18 +69,11 @@ def create(request):
         if form.is_valid():
             link = form.cleaned_data["image_link"]
             description_input = form.cleaned_data["description_input"]
+            uname = form.cleaned_data["username"]
             post = Post.objects.create(
-                # user = None,
+                username = uname,
                 image_link = link,
                 description = description_input
             )
-            newPost = {
-                "description": description_input,
-                "image_link": link,
-                "username": "krizh-p",
-                "num_likes": 1,
-                "comments": [],
-                "post_id": len(posts) + 1,
-            }
-            # posts.insert(0, newPost)
+            post.save()
     return render(request, "home/create.html", {"form": NewImageForm()})
